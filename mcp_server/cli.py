@@ -1,4 +1,4 @@
-"""Console entry point ``cadapter-mcp`` (added by manydominos, 2026).
+r"""Console entry point ``cadapter-mcp`` (added by manydominos, 2026).
 
 Runs the same server as ``python mcp_server/mcp_solidworks.py`` (stdio), from an
 installed package. The signature index (``sw_api_signature`` and the by-ref typing
