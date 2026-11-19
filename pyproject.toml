@@ -1,0 +1,36 @@
+# Packaging added by manydominos (2026): `uvx --from <this repo's archive> cadapter-mcp`
+# runs the server without a checkout. The code layout is unchanged.
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cadapter"
+version = "1.0.0"
+description = "CADapter: an MCP server for SolidWorks (COM), packaged"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "Apache-2.0"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{ name = "Luigi Doria (original author)" }]
+dependencies = [
+    'pywin32; sys_platform == "win32"',
+    "mcp>=1.27,<2",
+]
+
+[project.optional-dependencies]
+# HTTP for a client on another machine: mcp-proxy turns the stdio server into HTTP.
+http = ["mcp-proxy"]
+# Optional recipe search (sw_search_api).
+rag = ["chromadb"]
+
+[project.scripts]
+cadapter-mcp = "mcp_server.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/manydominos/CADapter"
+Original = "https://github.com/luigidoria/CADapter"
+
+[tool.setuptools]
+py-modules = ["config_env"]
+packages = ["mcp_server", "solidworks", "rag"]

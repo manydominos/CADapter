@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "solidworks": {
+      "command": "uvx",
+      "args": [
+        "--refresh-package",
+        "cadapter",
+        "--from",
+        "${CADAPTER_SOURCE:-cadapter @ https://github.com/manydominos/CADapter/archive/refs/heads/main.zip}",
+        "cadapter-mcp"
+      ]
+    }
+  }
+}

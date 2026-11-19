@@ -19,3 +19,7 @@ __pycache__/
 
 # SOLIDWORKS lock files
 ~$*
+
+# packaging (manydominos)
+build/
+*.egg-info/

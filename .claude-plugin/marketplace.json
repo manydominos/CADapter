@@ -1,0 +1,31 @@
+{
+  "name": "cadapter",
+  "owner": {
+    "name": "manydominos",
+    "url": "https://github.com/manydominos"
+  },
+  "metadata": {
+    "description": "CADapter for Claude Code: SolidWorks through MCP."
+  },
+  "plugins": [
+    {
+      "name": "cadapter",
+      "source": "./plugin",
+      "version": "1.0.0",
+      "description": "SolidWorks for Claude: the CADapter MCP server (generic COM calls plus curated verbs).",
+      "author": {
+        "name": "Luigi Doria",
+        "url": "https://github.com/luigidoria"
+      },
+      "homepage": "https://github.com/manydominos/CADapter",
+      "repository": "https://github.com/manydominos/CADapter",
+      "license": "Apache-2.0",
+      "keywords": [
+        "solidworks",
+        "cad",
+        "mcp"
+      ],
+      "category": "development"
+    }
+  ]
+}

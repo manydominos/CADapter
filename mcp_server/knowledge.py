@@ -3,6 +3,7 @@
 This module has no COM or embedding dependency. The MCP base can start without the
 RAG directory, index or Chroma installation; only a search request needs them.
 """
+import os
 from pathlib import Path
 import importlib
 import importlib.util
@@ -12,6 +13,11 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def signature_index_path(root: Path = ROOT) -> Path:
     """Prefer the MCP cache, retaining old installations until they regenerate it."""
+    # Modified by manydominos (2026): CADAPTER_SIGNATURES names the index file, so an
+    # installed package (uvx, a venv) keeps it outside site-packages across updates.
+    override = os.environ.get("CADAPTER_SIGNATURES")
+    if override:
+        return Path(override)
     current = root / "mcp_server" / "cache" / "api_signatures.json"
     legacy = root / "rag_index" / "api_signatures.json"
     return current if current.is_file() or not legacy.is_file() else legacy
